@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Make a Wish 🎂</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="cake-section">
+  <h1>Make a Wish Babygirl 🎂</h1>
+
+  <div class="cake" onclick="cutCake()">
+    <div class="candle" id="candle"></div>
+  </div>
+
+  <p id="cakeText">
+    Click the cake, then blow the candle 💖
+  </p>
+
+  <button class="btn" onclick="blowCandle()">💨 Blow Candle</button>
+
+  <br><br>
+  <a href="gallery.html" class="btn">🌹 A Rose Like You</a>
+</section>
+
+<script>
+function blowCandle(){
+  document.getElementById("candle").style.display="none";
+  document.getElementById("cakeText").innerText =
+   "✨ Wish accepted. Your 20s are blessed & lucky ✨";
+}
+function cutCake(){
+  document.querySelector(".cake").style.transform="scale(1.05)";
+}
+</script>
+
+</body>
+</html>
