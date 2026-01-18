@@ -3,18 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Countdown</title>
+<title>Live Birthday Timer</title>
 <style>
   body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 50px;
-    background: #f0f0f0;
+    background: #f9f9f9;
     color: #333;
   }
-  h1 {
-    margin-bottom: 30px;
-  }
+  h1 { margin-bottom: 30px; }
   .countdown span {
     font-size: 2rem;
     margin: 0 10px;
@@ -25,7 +23,7 @@
 </head>
 <body>
 
-<h1>🎉 Live Birthday Countdown 🎉</h1>
+<h1>🎉 Live Age Timer 🎉</h1>
 
 <div class="countdown">
   <span id="years">0</span> Years
@@ -40,6 +38,7 @@
 <script>
 const birthDate = new Date("2006-01-19T00:00:00");
 
+// Function to calculate exact age
 function updateCountdown() {
   const now = new Date();
 
@@ -61,6 +60,7 @@ function updateCountdown() {
   }
   if (months < 0) { months += 12; years--; }
 
+  // Update DOM
   document.getElementById("years").innerText = years;
   document.getElementById("months").innerText = months;
   document.getElementById("days").innerText = days;
@@ -69,10 +69,11 @@ function updateCountdown() {
   document.getElementById("seconds").innerText = seconds;
 }
 
-// Update every second
+// Start the timer
 setInterval(updateCountdown, 1000);
 updateCountdown();
 </script>
 
 </body>
 </html>
+
