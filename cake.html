@@ -1,39 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Make a Wish 🎂</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake Fun!</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="birthday-container">
+    <h1 class="main-title">Let's Cut the Cake! 🎂</h1>
 
-<section class="cake-section">
-  <h1>Make a Wish Babygirl 🎂</h1>
+    <div class="cake-section">
+      <div class="cake" id="cake-cake">
+        <div class="candle" id="candle-cake"></div>
+      </div>
+      <button id="cut-cake">Cut Cake ✂️</button>
+    </div>
 
-  <div class="cake" onclick="cutCake()">
-    <div class="candle" id="candle"></div>
+    <div class="nav-links">
+      <a href="index.html">Home 🏠</a> | 
+      <a href="gallery.html">Gallery 📸</a> | 
+      <a href="message.html">Messages 💌</a>
+    </div>
   </div>
 
-  <p id="cakeText">
-    Click the cake, then blow the candle 💖
-  </p>
+  <canvas id="confetti"></canvas>
+  <script>
+    const cutBtn = document.getElementById("cut-cake");
+    const candle = document.getElementById("candle-cake");
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-  <button class="btn" onclick="blowCandle()">💨 Blow Candle</button>
+    cutBtn.addEventListener('click', () => {
+      candle.style.background = 'gray';
+      launchConfetti();
+      alert("Yay! Cake Cut 🎉🎂");
+    });
 
-  <br><br>
-  <a href="gallery.html" class="btn">🌹 A Rose Like You</a>
-</section>
+    function launchConfetti() {
+      const confettis = [];
+      for (let i = 0; i < 200; i++) {
+        confettis.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 20 + 10,
+          color: `hsl(${Math.random()*360}, 100%, 50%)`
+        });
+      }
 
-<script>
-function blowCandle(){
-  document.getElementById("candle").style.display="none";
-  document.getElementById("cakeText").innerText =
-   "✨ Wish accepted. Your 20s are blessed & lucky ✨";
-}
-function cutCake(){
-  document.querySelector(".cake").style.transform="scale(1.05)";
-}
-</script>
-
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        confettis.forEach(c => {
+          ctx.beginPath();
+          ctx.arc(c.x, c.y, c.r, 0, Math.PI*2);
+          ctx.fillStyle = c.color;
+          ctx.fill();
+          c.y += c.d / 10;
+          if (c.y > canvas.height) c.y = 0;
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+  </script>
 </body>
 </html>
