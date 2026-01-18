@@ -1,0 +1,161 @@
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', Arial, sans-serif;
+}
+
+/* BODY */
+body{
+  background:linear-gradient(135deg,#f7b2cc,#fde4ef);
+  text-align:center;
+  color:#3b1024;
+}
+
+/* SECTIONS */
+.hero,.cake-section,.gallery,.message{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:30px 20px;
+}
+
+/* HEADINGS */
+h1{
+  font-size:2.4rem;
+  margin-bottom:15px;
+  color:#7a003c;
+  font-weight:700;
+  text-shadow:0 3px 12px rgba(122,0,60,0.4);
+}
+
+/* TAG LINE */
+.tag{
+  font-size:1.1rem;
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+/* TEXT CARDS */
+p,.soft-text{
+  color:#3b1024;
+  background:rgba(255,255,255,0.97);
+  padding:16px 22px;
+  border-radius:22px;
+  max-width:650px;
+  line-height:1.8;
+  box-shadow:0 10px 30px rgba(255,105,180,0.35);
+  margin:15px auto;
+  font-weight:500;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 34px;
+  background:#c2185b;
+  color:white;
+  text-decoration:none;
+  border-radius:40px;
+  font-weight:600;
+  box-shadow:0 10px 30px rgba(194,24,91,0.45);
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 35px rgba(194,24,91,0.6);
+}
+
+.btn.secondary{
+  background:#ff6fa5;
+}
+
+/* COUNTDOWN */
+#countdown{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin:25px 0;
+}
+
+#countdown div{
+  background:#ffffff;
+  padding:12px 16px;
+  border-radius:18px;
+  min-width:90px;
+  font-weight:700;
+  color:#3b1024;
+  box-shadow:0 8px 25px rgba(255,105,180,0.3);
+}
+
+#countdown span{
+  display:block;
+  font-size:1.6rem;
+  color:#c2185b;
+}
+
+/* CAKE */
+.cake{
+  width:240px;
+  height:150px;
+  background:#ff9fbc;
+  border-radius:0 0 30px 30px;
+  position:relative;
+  margin:30px auto;
+  box-shadow:0 12px 30px rgba(255,105,180,0.5);
+}
+
+.candle{
+  width:14px;
+  height:45px;
+  background:#fff3a0;
+  position:absolute;
+  top:-45px;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.candle::after{
+  content:"";
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%);
+  width:14px;
+  height:14px;
+  background:#ff6a00;
+  border-radius:50%;
+  box-shadow:0 0 15px #ff6a00;
+}
+
+/* CANDLE OFF */
+.candle.off::after{
+  display:none;
+}
+
+/* IMAGE / GALLERY */
+.photo{
+  width:260px;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(255,105,180,0.55);
+  margin:25px 0;
+}
+
+/* ROSE FEEL */
+.rose{
+  font-size:2.2rem;
+  margin:10px;
+}
+
+/* FINAL MESSAGE */
+.message p{
+  font-size:1.15rem;
+}
